@@ -48,53 +48,12 @@ Optimized BERT variant emphasizing pre-training robustness and text fluency.
 
 3. Ensemble
 
-Combines logits from both models:
+🤝 Why Use an Ensemble?¶
+An ensemble combines predictions from multiple models to make a single, more stable prediction.
+Instead of relying on one model’s biases or weaknesses, the ensemble leverages their strengths — like averaging multiple expert opinions.
 
-𝑃
-𝑓
-𝑖
-𝑛
-𝑎
-𝑙
-=
-𝛼
-⋅
-𝑃
-𝐷
-𝑒
-𝐵
-𝐸
-𝑅
-𝑇
-𝑎
-+
-(
-1
-−
-𝛼
-)
-⋅
-𝑃
-𝑅
-𝑜
-𝐵
-𝐸
-𝑅
-𝑇
-𝑎
-P
-final
+In this notebook: ```python final_preds = (deberta_preds + roberta_preds) / 2
 	​
-
-=α⋅P
-DeBERTa
-	​
-
-+(1−α)⋅P
-RoBERTa
-	​
-
-
 Weighted averaging yields smoother decision boundaries and improved F1 balance.
 
 🚀 Training Pipeline
@@ -111,47 +70,8 @@ Blend predictions via ensemble weighting for submission.
 
 📈 Evaluation Metric
 
-F1 Score — harmonic mean of precision and recall:
+F1 Score — harmonic mean of precision and recall
 
-𝐹
-1
-=
-2
-×
-(
-𝑝
-𝑟
-𝑒
-𝑐
-𝑖
-𝑠
-𝑖
-𝑜
-𝑛
-×
-𝑟
-𝑒
-𝑐
-𝑎
-𝑙
-𝑙
-)
-𝑝
-𝑟
-𝑒
-𝑐
-𝑖
-𝑠
-𝑖
-𝑜
-𝑛
-+
-𝑟
-𝑒
-𝑐
-𝑎
-𝑙
-𝑙
 F1=
 precision+recall
 2×(precision×recall)
