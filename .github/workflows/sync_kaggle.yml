@@ -36,7 +36,7 @@ jobs:
       - name: Pull latest Kaggle notebook
         run: |
           # Replace this with your actual Kaggle notebook path
-          kaggle kernels pull shivanisharma1297/ Mercor AI Text Detection_myensemble -p ./kaggle_notebooks --force
+          kaggle kernels pull shivanisharma1297/mercor-ai-text-detection-myensemble -p ./kaggle_notebooks --force
 
       - name: Commit and push to GitHub
         run: |
